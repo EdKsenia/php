@@ -65,9 +65,10 @@ if (isset($_POST["send"])) {
                 break;
         }
     }
-    echo "return = ".$gen->getReturn();
-//    print(" and number of changes: ");
-//    print($changes);
+//    echo "return = ".$gen->getReturn();
+    print("<br/>");
+    print(" and number of changes: ");
+    print($changes);
 
 } else {
     include "web.html";
