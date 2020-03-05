@@ -12,8 +12,20 @@ if (isset($_POST["send"])) {
         $st_start[$i] = explode(" ", $arr[$i]);
         $st[$i] = explode(" ", $arr[$i]);
         shuffle($st[$i]);
-        $mas = array(count($arr)+$i => $st_start[$i][1]);
-        $el = array($i => $st[$i][1]);
+        $el = array();
+        $mas = array();
+        if(count($st[$i])>1){
+            $el = array($i => $st[$i][1]);
+        }
+        else{
+            $el = array($i => 0);
+        }
+        if(count($st_start[$i])>1){
+            $mas = array(count($arr)+$i => $st_start[$i][1]);
+        }
+        else{
+            $mas = array(count($arr)+$i => 0);
+        }
         $sec+= $el;
         $sec+= $mas;
     }
