@@ -37,13 +37,13 @@ if (isset($_POST["send"])) {
 
     function ran($sum, $data){
         for ($i = 0; $i < 10000; $i++) {
-            $j = mt_rand($min = 0, $max = $sum);
+            $j = mt_rand($min = 1, $max = $sum);
             $pos = -1;
             $numSt = 0;
             do{
                 $pos++;
                 $numSt += (int)$data[$pos]['weight'];
-            } while ($numSt<=$j && $numSt!=$sum);
+            } while ($numSt<$j && $numSt!=$sum);
             yield $data[$pos];
         }
     }
