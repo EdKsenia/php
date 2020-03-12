@@ -21,13 +21,11 @@ function ran($json)
 }
 
 
-//foreach (ran($json1) as $val) {
-//    $d = json_decode($json1, true)['data'];
-//    $key = array_search($val, $d);
-//    $data2[$key]['count']++;
-//    $data2[$key]['calculated_probability'] = $data2[$key]['count'] / 10000;
-//}
-//
-//print_r(json_encode($data2, JSON_UNESCAPED_UNICODE));
+foreach (ran($json1) as $val) {
+    $d = json_decode($json1, true)['data'];
+    $key = array_search($val, $d);
+    $data2[$key]['count']++;
+    $data2[$key]['calculated_probability'] = $data2[$key]['count'] / 10000;
+}
 
 
