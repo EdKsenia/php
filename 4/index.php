@@ -6,9 +6,9 @@ if (isset($_POST["send"])) {
     $del = "\n";
     $arr = explode($del, $text);//массив вводимых строк
     $sum = 0;
-    $data = array();
     $data2 = array();
-    print("Task 1:");
+    $data = array();
+
     print("<br/>");
     for ($i = 0; $i < count($arr); $i++) {
         $st[$i] = explode(" ", $arr[$i]);
@@ -21,39 +21,61 @@ if (isset($_POST["send"])) {
         $probability = (float)$weight / $sum;
         $array = array('text' => $t, 'weight' => ($weight),
             'probability' => $probability);
-        $array2 = array('text' => $t, 'count' => 0,
+        $array2 = array('text' => $t, 'count' => (int)0,
             'calculated_probability' => 0);
         array_push($data, $array);
         array_push($data2, $array2);
     }
-    $json = ['sum' => $sum, 'data' => $data];
-    print_r(json_encode($json, JSON_UNESCAPED_UNICODE));
+    $json1 = (json_encode(['sum' => $sum, 'data' => $data], JSON_UNESCAPED_UNICODE));
+    print("Task 1:");
+    print_r($json1);
     print("<br/>");
     print("<br/>");
     print("Task 2:");
     print("<br/>");
 
 
+//    print_r(json_encode($data2, JSON_UNESCAPED_UNICODE));
 
-    function ran($sum, $data){
-        for ($i = 0; $i < 10000; $i++) {
-            $j = mt_rand($min = 1, $max = $sum);
-            $pos = -1;
-            $numSt = 0;
-            do{
-                $pos++;
-                $numSt += (int)$data[$pos]['weight'];
-            } while ($numSt<$j && $numSt!=$sum);
-            yield $data[$pos];
-        }
-    }
-    foreach (ran($sum, $data) as $val) {
-        $key = array_search($val, $data);
+
+    include "task2.php";
+    foreach (ran($json1) as $val) {
+        $d = json_decode($json1, true)['data'];
+        $key = array_search($val, $d);
         $data2[$key]['count']++;
-        $data2[$key]['calculated_probability'] = $data2[$key]['count']/10000;
+        $data2[$key]['calculated_probability'] = $data2[$key]['count'] / 10000;
     }
 
     print_r(json_encode($data2, JSON_UNESCAPED_UNICODE));
+
+
+
+//    function ran($json){
+//        $arr = json_decode($json, true);
+//        $sum = $arr['sum'];
+//        $data = $arr['data'];
+//        for ($i = 0; $i < 10000; $i++) {
+//            $j = mt_rand($min = 1, $max = $sum);
+//            $pos = -1;
+//            $numSt = 0;
+//            do{
+//                $pos++;
+//                $numSt += (int)$data[$pos]['weight'];
+//            } while ($numSt<$j && $numSt!=$sum);
+//            yield $data[$pos];
+//        }
+//    }
+//
+//
+//    foreach (ran($json1) as $val) {
+//        $d = json_decode($json1, true)['data'];
+//        $key = array_search($val, $d);
+//        $data2[$key]['count']++;
+//        $data2[$key]['calculated_probability'] = $data2[$key]['count']/10000;
+//    }
+//
+//    print_r(json_encode($data2, JSON_UNESCAPED_UNICODE));
+//
 
 
 
@@ -62,6 +84,6 @@ if (isset($_POST["send"])) {
     include "web.html";
 }
 ?>
-</body>
-</html>
+</pre>
+
 
