@@ -5,7 +5,7 @@
         while (!feof($text)) {
             $st = fgets($text);
             if (preg_match('|' . $iniFile["symbol1"] . '*|', $st)) {
-                if ($iniFile["upper"]) {
+                if ($iniFile["upper"] === true) {
                     $st = strtoupper($st);
                 } else {
                     $st = strtolower($st);
