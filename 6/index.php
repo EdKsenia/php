@@ -13,21 +13,21 @@
                 print($st);
             } elseif (preg_match('|' . $iniFile["symbol2"] . '*|', $st)) {
                 $arr = str_split($st);
-                if ($iniFile["direction"] == "+") {
+                if ($iniFile["direction"] === "+") {
                     for ($i = 0; $i < count($arr); $i++) {
                         if (is_numeric($arr[$i]) && $arr[$i] != 9) {
                             $arr[$i]++;
                         }
-                        if ($arr[$i] == 9) {
+                        elseif ($arr[$i] == "9") {
                             $arr[$i] = 0;
                         }
                     }
                 } else {
                     for ($i = 0; $i < count($arr); $i++) {
                         if (is_numeric($arr[$i]) && $arr[$i] != 0) {
-                            $arr[$i]++;
+                            $arr[$i]--;
                         }
-                        if ($arr[$i] === 0) {
+                        elseif ($arr[$i] == "0") {
                             $arr[$i] = 9;
                         }
                     }
