@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="index.php" method="post">
+    <textarea name="text" placeholder="Введите строки"></textarea>
+    <br>
+    <h3>Выберите формат логгера</h3>
+    <p><input name="loggerF" type="checkbox">LoggerFile</p>
+    <textarea name="file" placeholder="Введите название файла"></textarea>
+    <p><input name="loggerB" type="checkbox">LoggerBrowser</p>
+    <h3>Выберите формат времени</h3>
+    <p><input name="time" type="checkbox">Время</p>
+    <p><input name="date" type="checkbox">Дата и время</p>
+    <p><input name="no" type="checkbox">Выключено</p>
+    <input type="submit" name="send" value="Нажмите для записи">
+</form>
+
+</body>
+</html>
