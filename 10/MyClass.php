@@ -1,9 +1,10 @@
 <?php
-require_once("FirstException.php");
-require_once("SecondException.php");
-require_once("ThirdException.php");
-require_once("FourthException.php");
-require_once("FifthException.php");
+
+use exception\FirstException;
+use exception\SecondException;
+use exception\ThirdException;
+use exception\FourthException;
+use exception\FifthException;
 class MyClass
 {
     public $a;

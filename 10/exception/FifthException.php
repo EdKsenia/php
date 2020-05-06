@@ -1,8 +1,6 @@
-<!--namespace mySpace;-->
 <?php
-require_once("FirstException.php");
-class ThirdException extends FirstException{
-
+namespace exception;
+class FifthException extends \Exception {
     public function __construct($message, $code = 0, Exception $previous = null) {
         $this->message = $message;
         parent::__construct($message, $code, $previous);
@@ -10,4 +8,5 @@ class ThirdException extends FirstException{
     public function __toString() {
         return __CLASS__ . ": [{$this->code}]: {$this->message}\n";
     }
+
 }

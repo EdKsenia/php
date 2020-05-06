@@ -9,12 +9,11 @@
 
 
 <pre><?php
-    require_once("FirstException.php");
-    require_once("SecondException.php");
-    require_once("ThirdException.php");
-    require_once("FourthException.php");
-    require_once("FifthException.php");
-    require_once("MyClass.php");
+    use exception\FirstException;
+    use exception\FifthException;
+    spl_autoload_register(function ($class_name) {
+        include $class_name . '.php';
+    });
     if (isset($_POST["send"])) {
         $cl = new MyClass();
         try {
