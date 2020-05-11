@@ -1,22 +1,31 @@
 <?php
 namespace logger;
-require_once("LoggerInterface.php");
+use loggerInterface\LoggerInterface;
+require "LoggerInterface.php";
 
 class Logger implements LoggerInterface
 {
+    public $arr_json = [];
     public $filePath;//путь к файлу
     public $template = "{date} {message} {context}";//сообщение
-
+    public $file;
     public function __construct($filePath)
     {
         $this->filePath = $filePath;
+        $this->file = fopen($this->filePath, 'a');
+    }
+
+    function __destruct()
+    {
+        $json = json_encode($this->arr_json,JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
+        fwrite($this->file, $json);
+        fclose($this->file);
     }
 
     public function log($level, $message, array $context = [])
     {
-        $json = json_encode(['date' => date("d.m.y G:i:s:u"), 'type' => $message,
-            'context'=>$context],JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
-        file_put_contents($this->filePath, $json, FILE_APPEND);
+        $info = ['date' => date("d.m.y G:i:s:u"), 'type' => $level, 'context'=>$context];
+        array_push($this->arr_json,$info);
     }
 
 

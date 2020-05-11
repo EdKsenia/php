@@ -12,9 +12,10 @@
 
 <pre><?php
     require_once("Logger.php");
+    use logger\Logger;
 
     if (isset($_POST["send"])) {
-        $logger = new logger\Logger("log.txt");
+        $logger = new Logger("log.txt");
         $context = array("hi", "world");
         $logger->log(1, "Hi", $context);
 
