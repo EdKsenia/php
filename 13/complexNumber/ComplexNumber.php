@@ -31,14 +31,14 @@ class ComplexNumber
         return $this->complex;
     }
 
-    function set_real(): void
+    function set_real(float $real): void
     {
-        $this->real;
+        $this->real=$real;
     }
 
-    function set_complex(): void
+    function set_complex(float $complex): void
     {
-        $this->complex;
+        $this->complex=$complex;
     }
 
     function add(ComplexNumber $number): void
@@ -65,8 +65,13 @@ class ComplexNumber
     {
         $r = $this->real;
         $c = $this->complex;
-        $this->real = ($this->real*$number->get_real()+$this->complex*$number->get_complex())/(pow($number->get_complex(),2)+pow($number->get_real(),2));
-        $this->complex = (-$r*$number->get_complex()+$c*$number->get_real())/(pow($number->get_complex(),2)+pow($number->get_real(),2));
+        if ($number->complex!=0 && $number->real!=0) {
+            $this->real = ($this->real*$number->get_real()+$this->complex*$number->get_complex())/(pow($number->get_complex(),2)+pow($number->get_real(),2));
+            $this->complex = (-$r*$number->get_complex()+$c*$number->get_real())/(pow($number->get_complex(),2)+pow($number->get_real(),2));
+        }
+        else{
+            echo('Нельзя делить на 0');
+        }
     }
 
     function abs(): float
