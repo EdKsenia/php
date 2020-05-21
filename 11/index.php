@@ -16,8 +16,10 @@
 
     if (isset($_POST["send"])) {
         $logger = new Logger("log.txt");
-        $context = array("hi", "world");
-        $logger->log(1, "Hi", $context);
+        $logger->log("emergency", "Message for emergency");
+        $logger->log("alert", "Message for alert");
+        $logger->log("critical", "Message for critical");
+
 
     } else {
         include "web.html";

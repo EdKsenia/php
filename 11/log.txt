@@ -1,10 +1,49 @@
 [
     {
-        "date": "11.05.20 12:51:53:000000",
-        "type": 1,
-        "context": [
-            "hi",
-            "world"
-        ]
+        "date": "21.05.20 10:19:26:000000",
+        "type": "logger\\Logger",
+        "content": "Message for emergency"
+    },
+    {
+        "date": "21.05.20 10:19:26:000000",
+        "type": "logger\\Logger",
+        "content": "Message for alert"
+    },
+    {
+        "date": "21.05.20 10:19:26:000000",
+        "type": "logger\\Logger",
+        "content": "Message for critical"
+    }
+][
+    {
+        "date": "21.05.20 10:21:10:000000",
+        "type": "logger\\Loggeremergency",
+        "content": "Message for emergency"
+    },
+    {
+        "date": "21.05.20 10:21:10:000000",
+        "type": "logger\\Logger",
+        "content": "Message for alert"
+    },
+    {
+        "date": "21.05.20 10:21:10:000000",
+        "type": "logger\\Logger",
+        "content": "Message for critical"
+    }
+][
+    {
+        "date": "21.05.20 10:21:33:000000",
+        "type": "logger\\Logger emergency",
+        "content": "Message for emergency"
+    },
+    {
+        "date": "21.05.20 10:21:33:000000",
+        "type": "logger\\Logger",
+        "content": "Message for alert"
+    },
+    {
+        "date": "21.05.20 10:21:33:000000",
+        "type": "logger\\Logger",
+        "content": "Message for critical"
     }
 ]
